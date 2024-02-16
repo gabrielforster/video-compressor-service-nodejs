@@ -20,7 +20,7 @@ const outputPath = `/tmp/compressed-${filename}`;
 
 (async () => {
   await new Promise<boolean>((resolve, reject) => {
-    let command = "-threads 3 -vcodec libx265 -crf 35 -preset superfast".split(" ");
+    let command = "-threads 6 -vcodec libx265 -crf 35 -preset superfast"
 
     console.log("size medium", size, MEDIUM_SIZE__BYTES)
     console.log("size min", size, MIN_SIZE__BYTES)
@@ -34,11 +34,11 @@ const outputPath = `/tmp/compressed-${filename}`;
     }
 
     if (size > MIN_SIZE__BYTES) {
-      command = "-threads 3 -vcodec libx265 -crf 35 -preset superfast".split(" ");
+      command = "-threads 6 -vcodec libx265 -crf 35 -preset superfast"
     }
 
     if (size > MEDIUM_SIZE__BYTES) {
-      command = "-threads 3 -vcodec libx265 -crf 40 -preset ultrafast".split(" ");
+      command = "-threads 6 -vcodec libx265 -crf 40 -preset ultrafast"
     }
 
     parentPort!.postMessage("command-" + command);
@@ -47,7 +47,7 @@ const outputPath = `/tmp/compressed-${filename}`;
     ffmpeg()
     .input(path)
     .outputOptions(
-      "-threads 6 -vcodec libx265 -crf 35 -preset superfast".split(" ")
+      command.split(" ")
     )
     .saveToFile(outputPath)
     .on('end', () => {
