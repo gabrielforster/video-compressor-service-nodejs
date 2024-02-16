@@ -47,7 +47,7 @@ const outputPath = `/tmp/compressed-${filename}`;
     ffmpeg()
     .input(path)
     .outputOptions(
-      "-threads 3 -vcodec libx265 -crf 35 -preset superfast".split(" ")
+      "-threads 6 -vcodec libx265 -crf 35 -preset superfast".split(" ")
     )
     .saveToFile(outputPath)
     .on('end', () => {

@@ -1,5 +1,4 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:sa-east-1:018970712967:task-definition/video_compressor_task_definition:1",
     "containerDefinitions": [
         {
             "name": "video_compressor",
@@ -42,43 +41,8 @@
     "taskRoleArn": "arn:aws:iam::018970712967:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::018970712967:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
     "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -88,7 +52,5 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-02-16T21:11:51.978Z",
-    "registeredBy": "arn:aws:iam::018970712967:root",
     "tags": []
 }
