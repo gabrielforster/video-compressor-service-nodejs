@@ -37,7 +37,7 @@ server.on("connection", function(socket) {
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/tmp/uploads/") // specify the destination directory
+    cb(null, "/tmp/") // specify the destination directory
   },
   filename: function (req, file, cb) {
     const hash = createHash("sha256")
@@ -129,7 +129,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
 
 app.get("/download", (req, res) => {
   const filename = req.query.filename as string;
-  const path = `/tmp/uploads/${filename}`;
+  const path = `/tmp/${filename}`;
 
   if (!fs.existsSync(path)) {
     return res.status(404).send("File not found");
@@ -143,8 +143,8 @@ app.get("/download", (req, res) => {
 });
 
 app.get("/list", (_, res) => {
-  const files = fs.readdirSync("/tmp/uploads").map(filename => {
-    const stats = fs.statSync(`/tmp/uploads/${filename}`);
+  const files = fs.readdirSync("/tmp/").map(filename => {
+    const stats = fs.statSync(`/tmp/${filename}`);
 
     return {
       location: filename,
