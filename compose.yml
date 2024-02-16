@@ -5,9 +5,10 @@ services:
     volumes:
       - /tmp/uploads:/tmp/uploads
     ports:
-      - 3000:3000
+      - 80:80
+      - 81:81
     deploy:
       resources:
         limits:
           cpus: "4"
-          memory: "1GB"
+          memory: "2G"
