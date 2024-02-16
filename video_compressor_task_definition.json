@@ -3,7 +3,8 @@
         {
             "name": "video_compressor",
             "image": "018970712967.dkr.ecr.sa-east-1.amazonaws.com/video_compressor_nodejs:latest",
-            "cpu": 0,
+            "cpu": "8192",
+            "memory": "24576",
             "portMappings": [
                 {
                     "name": "http_server",
