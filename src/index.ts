@@ -7,10 +7,7 @@ import express, { Request } from "express"
 import cors from "cors"
 import multer from "multer"
 import pino from "pino"
-import { on } from "node:events";
 const logger = pino()
-
-const PORT = process.env.PORT ?? 80
 
 const MAX_FILE_SIZE = 64 * 1024 * 1024;
 
@@ -157,4 +154,4 @@ app.get("/list", (_, res) => {
   res.json(files);
 });
 
-app.listen(PORT, () => { logger.info("running on port 3000") });
+app.listen(80, () => { logger.info("running server") });
